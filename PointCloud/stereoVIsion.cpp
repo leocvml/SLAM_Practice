@@ -9,11 +9,11 @@
 using namespace std;
 using namespace Eigen;
 
-// 文件路径
+
 string left_file = "../left.png";
 string right_file = "../right.png";
 
-// // 在pangolin中画图，已写好，无需调整
+
 void showPointCloud(
     const vector<Vector4d, Eigen::aligned_allocator<Vector4d>> &pointcloud);
 
@@ -46,9 +46,9 @@ vector<Vector4d, Eigen::aligned_allocator<Vector4d>> pointcloud;
           
             if (disparity.at<float>(v, u) <= 0.0 || disparity.at<float>(v, u) >= 96.0) continue;
            
-            Vector4d point(0, 0, 0, left.at<uchar>(v, u) / 255.0); // 前三维为xyz,第四维为颜色
+            Vector4d point(0, 0, 0, left.at<uchar>(v, u) / 255.0); 
 
-            // 根据双目模型计算 point 的位置
+         
             double x = (u - cx) / fx;
             double y = (v - cy) / fy;
             double depth = fx * b / (disparity.at<float>(v, u));
